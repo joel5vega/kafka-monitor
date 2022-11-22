@@ -1,0 +1,1 @@
+{"enLinea_BBD_HEADER":{"status":{"name":"enLinea_BBD_HEADER","connector":{"state":"PAUSED","worker_id":"172.28.67.15:8083"},"tasks":[{"id":0,"state":"RUNNING","worker_id":"172.28.67.14:8083"}],"type":"source"}}}
