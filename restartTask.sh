@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Version 1.3 Nov 18, 2022
+# Version 1.4 Nov 23, 2022
 # Set the path so cron can find jq, necessary for cron depending on your default PATH
 # Se debe tener instalado el paquete jq
 
