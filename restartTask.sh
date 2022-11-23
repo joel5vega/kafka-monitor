@@ -76,7 +76,6 @@ case "$1" in
   exit 1;;
 esac
 
-curl -s "http://${IP}:8083/connectors?expand=status"
 # Validar conexion
 curl -s "http://${IP}:8083/connectors?expand=info&expand=status" > ${RESULTADO}
 [ $? -ne 0 ] && mensaje -l -m "ERROR - No se puede listar los conectores." && rm -f ${RESULTADO} && exit 1
@@ -92,14 +91,13 @@ RESPONSE=$(grep "FAILED\|PAUSED" ${RESULTADO} | cut -d"|" -f2)
 
 # Restart any connector tasks that are FAILED
 # Works for Apache Kafka >= 2.3.0 
-#Restart Connector
+# Restart Connector
 curl -s "http://${IP}:8083/connectors?expand=status" | \
-  jq -c -M 'map({name: .status.name ,conector:.status.connector} )| .[] | {name: .name, state: .conector.state}| if(.state=="PAUSED" or .state=="FAILED") then  {name: .name} | ("/connectors/"+ .name + "/restart") else empty end' | \
-  xargs -I{connector} curl -v -X POST "http://${IP}:8083"\{connector\}
+  jq -c -M 'map({name: .status.name ,conector:.status.connector} )| .[] | {name: .name, state: .conector.state}| if(.state=="PAUSED" or .state=="FAILED") then  {name: .name} | ("/connectors/"+.name+"/resume") else empty end' | \
+  xargs -I{connector} curl -v -X PUT "http://${IP}:8083"\{connector\}
 # Restart Tasks
 curl -s "http://${IP}:8083/connectors?expand=status" | \
-  jq -c -M 'map({name: .status.name } +  {tasks: .status.tasks}) | .[] | {task: ((.tasks[]) + {name: .name})}  | select(.task.state==("FAILED","PAUSED")) | {name: .task.name, task_id: .task.id|tostring} | ("/connectors/"+ .name + "/tasks/" + .task_id + "/restart")' | \
+  jq -c -M 'map({name: .status.name } +  {tasks: .status.tasks}) | .[] | {task: ((.tasks[]) + {name: .name})}  | select(.task.state==("FAILED","PAUSED")) | {name: .task.name, task_id: .task.id|tostring} | ("/connectors/"+.name+"/tasks/"+.task_id+"/restart")' | \
   xargs -I{connector_and_task} curl -v -X POST "http://${IP}:8083"\{connector_and_task\}
 
-curl -s "http://${IP}:8083/connectors?expand=status"
 rm -f ${RESULTADO}
