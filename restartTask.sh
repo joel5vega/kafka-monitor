@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Version 1.4 Nov 23, 2022
+# Version 1.5 Dic 2, 2022
 # Set the path so cron can find jq, necessary for cron depending on your default PATH
 # Se debe tener instalado el paquete jq
 
@@ -93,7 +93,7 @@ RESPONSE=$(grep "FAILED\|PAUSED" ${RESULTADO} | cut -d"|" -f2)
 # Works for Apache Kafka >= 2.3.0 
 # Restart Connector
 curl -s "http://${IP}:8083/connectors?expand=status" | \
-  jq -c -M 'map({name: .status.name ,conector:.status.connector} )| .[] | {name: .name, state: .conector.state}| if(.state=="PAUSED" or .state=="FAILED") then  {name: .name} | ("/connectors/"+.name+"/resume") else empty end' | \
+  jq -c -M 'map({name: .status.name ,conector:.status.connector} )| .[] | {name: .name, state: .conector.state}| if(.state=="PAUSED" or .state=="FAILED") then  {name: .name} | ("/connectors/"+.name+"/restart") else empty end' | \
   xargs -I{connector} curl -v -X PUT "http://${IP}:8083"\{connector\}
 # Restart Tasks
 curl -s "http://${IP}:8083/connectors?expand=status" | \
