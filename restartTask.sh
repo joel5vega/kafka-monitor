@@ -94,7 +94,7 @@ RESPONSE=$(grep "FAILED\|PAUSED" ${RESULTADO} | cut -d"|" -f2)
 # Restart Connector
 curl -s "http://${IP}:8083/connectors?expand=status" | \
   jq -c -M 'map({name: .status.name ,conector:.status.connector} )| .[] | {name: .name, state: .conector.state}| if(.state=="PAUSED" or .state=="FAILED") then  {name: .name} | ("/connectors/"+.name+"/restart") else empty end' | \
-  xargs -I{connector} curl -v -X PUT "http://${IP}:8083"\{connector\}
+  xargs -I{connector} curl -v -X POST "http://${IP}:8083"\{connector\}
 # Restart Tasks
 curl -s "http://${IP}:8083/connectors?expand=status" | \
   jq -c -M 'map({name: .status.name } +  {tasks: .status.tasks}) | .[] | {task: ((.tasks[]) + {name: .name})}  | select(.task.state==("FAILED","PAUSED")) | {name: .task.name, task_id: .task.id|tostring} | ("/connectors/"+.name+"/tasks/"+.task_id+"/restart")' | \
