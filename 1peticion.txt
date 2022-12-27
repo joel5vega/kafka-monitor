@@ -1,0 +1,55 @@
+Log 20
+2022-12-14 13:08:03.524812
+--------------------------------INICIO--------------------------
+INFO:__main__:2022-12-14 13:08:03.524962--LEIDO=8262 - J42445393 - I - 
+2022-12-14 11:01:45.404000+00:00 - SIGA_HEADER_BT2
+INFO:__main__:2022-12-14 13:08:03.525025INICIANDO CICLO..
+INFO:__main__:2022-12-14 13:08:03.531216--TIEMPO QUERY DETAIL=0.005258segs.
+INFO:__main__:2022-12-14 13:08:36.509240--LLAMADA A KRAKEN=32.977816segs
+
+WARNING:__main__:Response kraken=
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<title>Service Unavailable</title>
+<style type="text/css">
+body, p, h1 {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #b10b29;
+}
+</style>
+</head>
+<body>
+<h2>Service Unavailable</h2>
+<p>The service is temporarily unavailable. Please try again later.</p>
+</body>
+</html>
+ 
+INFO:__main__:Request Kraken={"id": "J42445393", "nitCompany": "1020255020", "nitCustomer": "12516508", "socialReason": "RICHART LUNA POVEDA", "contractId": "1641740", "typeOfPerson": "F", "emailNotification": "richarluna@gmail.gom", "phoneNumberNotification": "71155260", "isTigo": "true", "voucherNumber": "42445393", "voucherType": "F", "voucherState": "PC", "billingPeriod": "202310", "emissionDate": "2022-12-13", "totalAmount": "159.00", "typeOfPayment": "CR", "branchId": "0", "economicActivityId": "0", "extraCustomerAddress": " ", "extraPeriodStartdate": "2022-11-01", "extraPeriodEnddate": "2022-11-30", "extraPaymentDeadline": "2022-11-30", "extraServiceInterruptionDate": "2022-11-30", "extraPeriodDays": "30", "totalAmountCurrency": null, "currencyCode": null, "exchangeRate": null, "documentTypeCode": "1", "documentComplement": null, "paymentMethodTypeCode": null, "salePointCode": null, "details": [{"quantity": "1", "sequence": "746369", "concept": "WIFI HOGAR INICIAL", "unitPrice": "159.0", "subtotal": "159.0", "billingPeriod": 202310, "discountAmount": "0", "productCode": "P5136"}]}
+INFO:__main__:2022-12-14 13:08:36.509688 - Grabando por Creacion... 500 
+- <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<title>Service Unavailable</title>
+<style type="text/css">
+body, p, h1 {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #b10b29;
+}
+</style>
+</head>
+<body>
+<h2>Service Unavailable</h2>
+<p>The service is temporarily unavailable. Please try again later.</p>
+</body>
+</html>
+ 
+INFO:__main__:2022-12-14 13:08:36.520123--TIEMPO TOTAL CICLO=32.995056segs.

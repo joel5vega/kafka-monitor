@@ -1,0 +1,20 @@
+Log 28
+2022-12-14 13:08:34.830320
+  --------------------------------INICIO--------------------------
+INFO:__main__:2022-12-14 13:08:34.830583--LEIDO=8262 - J42445393 - I - 
+2022-12-14 11:01:45.404000+00:00 - SIGA_HEADER_BT2
+INFO:__main__:2022-12-14 13:08:34.830725INICIANDO CICLO..
+INFO:__main__:2022-12-14 13:08:34.834295--TIEMPO QUERY DETAIL=0.001729segs.
+INFO:__main__:2022-12-14 13:08:45.463944--LLAMADA A KRAKEN=10.629368segs
+
+WARNING:__main__:Response kraken=
+{"type":"https://www.jhipster.tech/problem/problem-with-message","title":"Internal Server Error","status":500,"detail":"could not execute statement; SQL [n/a]; constraint [KRAKEN_SFE.IDX_EXTERNAL_INVOICE_TYPE_ID]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement","path":"/api/v1/tigo-integrations/create-invoice-for-home","message":"error.http.500"}
+INFO:__main__:Request Kraken=
+{"id": "J42445393", "nitCompany": "1020255020", "nitCustomer": "12516508", "socialReason": "RICHART LUNA POVEDA", "contractId": "1641740", "typeOfPerson": "F", "emailNotification": "richarluna@gmail.gom", "phoneNumberNotification": "71155260", "isTigo": "true", "voucherNumber": "42445393", "voucherType": "F", "voucherState": "PC", "billingPeriod": "202310", "emissionDate": "2022-12-13", "totalAmount": "159.00", "typeOfPayment": "CR", "branchId": "0", "economicActivityId": "0", "extraCustomerAddress": " ", "extraPeriodStartdate": "2022-11-01", "extraPeriodEnddate": "2022-11-30", "extraPaymentDeadline": "2022-11-30", "extraServiceInterruptionDate": "2022-11-30", "extraPeriodDays": "30", "totalAmountCurrency": null, "currencyCode": null, "exchangeRate": null, "documentTypeCode": "1", "documentComplement": null, "paymentMethodTypeCode": null, "salePointCode": null, "details": [{"quantity": "1", "sequence": "746369", "concept": "WIFI HOGAR INICIAL", "unitPrice": "159.0", "subtotal": "159.0", "billingPeriod": 202310, "discountAmount": "0", "productCode": "P5136"}]}
+
+INFO:__main__:2022-12-14 13:08:45.464471 - 
+Grabando por Creacion... 500 - 
+{"type":"https://www.jhipster.tech/problem/problem-with-message","title":"Internal Server Error","status":500,"detail":"could not execute statement; SQL [n/a]; constraint [KRAKEN_SFE.IDX_EXTERNAL_INVOICE_TYPE_ID]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement","path":"/api/v1/tigo-integrations/create-invoice-for-home","message":"error.http.500"}
+
+INFO:__main__:2022-12-14 13:08:45.472632--TIEMPO TOTAL CICLO=10.641834segs.
+
